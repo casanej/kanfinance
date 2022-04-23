@@ -1,0 +1,8 @@
+#folder removes
+node_modules
+build
+.firebase
+
+#files removes
+**/*.lock
+**/.env
