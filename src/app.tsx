@@ -13,7 +13,7 @@ const App = () => {
 
     return <CustomThemeContext>
         <BrowserRouter>
-            <ToastContainer />
+            <ToastContainer style={{ width: 'fit-content', maxWidth: '1280px' }} />
             <QueryClientProvider client={queryClient}>
                 <AuthProviderProvider>
                     <AppPages />

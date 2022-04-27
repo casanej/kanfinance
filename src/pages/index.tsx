@@ -6,6 +6,7 @@ import { HomePage } from './home';
 import { LoginPage } from './login';
 import { LogoutPage } from './logout';
 import { NotFoundPage } from './not-found';
+import { RegisterPage } from './register';
 
 export const AppPages = (): ReactElement => {
     return <>
@@ -13,6 +14,7 @@ export const AppPages = (): ReactElement => {
             <Route path='/' element={<HomePage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/logout' element={<LogoutPage />} />
+            <Route path='/register' element={<RegisterPage />} />
             <Route path='app' element={<ProtectedRoutes />}>
                 <Route path='dashboard' element={<DashboardPage /> } />
             </Route>

@@ -1,36 +1,28 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { Typography } from '@mui/material';
+import { Container } from 'components';
 import React, { FC } from 'react'
+import { LoginContent, RegisterStyled } from './index.style';
 
-interface Props { }
+import { ReactComponent as RegisterPlaceholder } from 'assets/images/register-placeholder.svg'
+import { RegisterForm } from 'structure';
 
-export const Register:FC<Props> = (props) => {
-    const auth = getAuth();
+export const RegisterPage:FC = () => {
+    return <Container fullHeight size='lg'>
+        <RegisterStyled>
+            <LoginContent>
+                <Typography variant='h5'>Seja bem vindo</Typography>
+                {/* <Typography variant='h6'>Crie sua conta usando</Typography>
+                <div>
+                    <Button variant='contained'>G</Button>
+                    <Button variant='contained'>F</Button>
+                </div> */}
 
-    const handleSignIn = async() => {
-        try {
-            const user = await createUserWithEmailAndPassword(auth, 'rafael.casanje@gmail.com', 'R@f@el2010kanfincance');
+                {/* <Typography variant='inherit'>ou preencha os campos abaixo para criar sua conta</Typography> */}
+                <Typography variant='inherit'>preencha os campos abaixo para criar sua conta</Typography>
 
-            console.log('[USER]', user);
-        } catch (error: any) {
-            console.log('[ERROR]', error?.code, error?.message);
-        }
-    }
-
-    const handleLogIn = async() => {
-        try {
-            const user = await signInWithEmailAndPassword(auth, 'rafael.casanje@gmail.com', 'R@f@el2010kanfincance');
-
-            console.log('[USER]', user);
-        } catch (error: any) {
-            console.log('[ERROR]', error?.code, error?.message);
-        }
-    }
-
-    return (
-        <div>
-            <div>LoginPage</div>
-            <button onClick={handleSignIn}>Create Test User</button>
-            <button onClick={handleLogIn}>Login Test User</button>
-        </div>
-    );
+                <RegisterForm />
+            </LoginContent>
+            <RegisterPlaceholder />
+        </RegisterStyled>
+    </Container>;
 };

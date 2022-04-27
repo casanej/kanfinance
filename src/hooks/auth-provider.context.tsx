@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-empty-function */
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from './useToast';
@@ -13,7 +13,7 @@ interface AuthProviderProps {
     isLoggedIn: boolean;
     firstRender: boolean;
     onLogIn: (username: string, password: string, redirect?: boolean) => void;
-    onSignIn: (username: string, password: string) => void;
+    onSignIn: (name: string, username: string, password: string, redirect?: boolean) => void;
     onLogOut: () => void;
 }
 
@@ -63,18 +63,25 @@ export const AuthProviderProvider = (props: Props) => {
             });
     }
 
-    const handleSignIn = (email: string, password: string) => {
+    const handleSignIn = (name: string, email: string, password: string, redirect?: boolean) => {
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-            // Signed in
+            .then(async(userCredential) => {
                 const user = userCredential.user;
                 console.log('[USER LOGGED]', user)
                 setIsLoggedIn(true);
+
+                await updateProfile(user, {
+                    displayName: name
+                })
+                if(redirect) navigate('/app/dashboard');
             })
             .catch((error) => {
                 const { code } = error;
 
-                toast('error', 'Não foi possível realizar o login. Tente novamente mais tarde.')
+                if (code === 'auth/email-already-in-use') toast('error', 'Email já cadastrado, faça login para continuar ou recupere sua senha.');
+                else {
+                    toast('error', 'Não foi possível realizar o login. Tente novamente mais tarde.')
+                }
 
                 console.log('[SIGN IN ERROR]', {error}, code)
             });

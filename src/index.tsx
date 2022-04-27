@@ -9,13 +9,13 @@ const container = document.getElementById('root');
 const root = createRoot(container!);
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyCoty_oTrSYkWEZbISlvrYKhKDiahiHyUM',
-    authDomain: 'kanfinance-casanje.firebaseapp.com',
-    projectId: 'kanfinance-casanje',
-    storageBucket: 'kanfinance-casanje.appspot.com',
-    messagingSenderId: '1092914904384',
-    appId: '1:1092914904384:web:1a2c8345c72ef7dd11cea5',
-    measurementId: 'G-43L4LK71WM'
+    apiKey: process.env.FIREBASE_APIKEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
