@@ -1,20 +1,15 @@
-import { getAuth, signOut } from 'firebase/auth';
+import { useAuthProvider } from 'hooks';
 import React, { FC, useEffect } from 'react'
 
 export const LogoutPage:FC = () => {
-    const auth = getAuth();
+    const { onLogOut } = useAuthProvider();
 
     useEffect(() => {
         handleLogout();
     }, []);
 
     const handleLogout = () => {
-        signOut(auth).then(() => {
-            // Sign-out successful.
-            console.log('[LOGOUT SUCCESS]', auth);
-        }).catch((error) => {
-            console.log('[ERROR]', error);
-        });
+        onLogOut()
     }
     return <div>LogoutPage</div>;
 };

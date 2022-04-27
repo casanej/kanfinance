@@ -4,7 +4,7 @@ export type ToastTypes = 'success' | 'error' | 'info' | 'warning';
 
 export const useToast = () => {
     const toastOption: ToastOptions = {
-        position: 'top-right',
+        position: 'top-center',
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

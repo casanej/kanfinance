@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
 import React from 'react';

@@ -13,10 +13,10 @@ export const LoginPage:FC = () => {
             <LoginContent>
                 <Typography variant='h4'>Seja bem vindo</Typography>
                 <Typography variant='h6'>faça login em sua conta</Typography>
-                <div>
+                {/* <div>
                     <Button variant='contained'>G</Button>
                     <Button variant='contained'>F</Button>
-                </div>
+                </div> */}
 
                 <Typography variant='inherit'>ou digite suas credenciais</Typography>
 

@@ -1,6 +1,6 @@
 import { Button, TextField } from '@mui/material';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { Formik } from 'formik';
+import { useAuthProvider } from 'hooks';
 import React, { FC, useMemo } from 'react'
 import { loginFormSchema } from './index.schema';
 import { LoginFormContent } from './index.style';
@@ -11,19 +11,10 @@ interface LoginFormPayloadData {
 }
 
 export const LoginForm:FC = () => {
-    const auth = getAuth();
+    const { onLogIn } = useAuthProvider();
 
-    const handleLogIn = async(data: LoginFormPayloadData, helper: any) => {
-        try {
-            console.log('[CURRENT USER 1]', auth);
-            await signInWithEmailAndPassword(auth, data.email, data.password);
-
-            helper.resetForm();
-
-            console.log('[CURRENT USER 2]', auth);
-        } catch (error: any) {
-            console.log('[ERROR]', error?.code, error?.message);
-        }
+    const handleLogIn = (data: LoginFormPayloadData, _helper: any) => {
+        onLogIn(data.email, data.password, true);
     }
 
     const loginFormInitialValue = useMemo(() => ({

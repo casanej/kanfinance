@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom';
 import { CustomThemeContext } from './provider';
+import { AuthProviderProvider } from './hooks';
 
 const App = () => {
     const queryClient = new QueryClient();
@@ -14,7 +15,9 @@ const App = () => {
         <BrowserRouter>
             <ToastContainer />
             <QueryClientProvider client={queryClient}>
-                <AppPages />
+                <AuthProviderProvider>
+                    <AppPages />
+                </AuthProviderProvider>
             </QueryClientProvider>
         </BrowserRouter>
     </CustomThemeContext>
