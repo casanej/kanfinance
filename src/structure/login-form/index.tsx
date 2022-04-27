@@ -1,6 +1,6 @@
 import { Button, TextField } from '@mui/material';
 import { Formik } from 'formik';
-import { useAuthProvider } from 'hooks';
+import { useAuthProvider } from 'provider';
 import React, { FC, useMemo } from 'react'
 import { loginFormSchema } from './index.schema';
 import { LoginFormContent } from './index.style';

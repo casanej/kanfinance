@@ -1,4 +1,4 @@
-import { useAuthProvider } from 'hooks';
+import { useAuthProvider } from 'provider';
 import React, { FC, useEffect } from 'react'
 
 export const LogoutPage:FC = () => {

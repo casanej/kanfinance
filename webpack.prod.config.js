@@ -83,6 +83,7 @@ const config = {
       context: path.resolve(__dirname, 'src/context/'),
       components: path.resolve(__dirname, 'src/components/'),
       provider: path.resolve(__dirname, 'src/provider/'),
+      structure: path.resolve(__dirname, 'src/structure/'),
     },
     fallback: {
       fs: false,

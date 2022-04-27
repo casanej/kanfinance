@@ -3,7 +3,7 @@
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useToast } from './useToast';
+import { useToast } from '../hooks/useToast';
 
 interface Props {
     children: React.ReactNode;
