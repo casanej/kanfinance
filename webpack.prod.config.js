@@ -51,24 +51,18 @@ const config = {
           loader: '@svgr/webpack',
           options: {
             svgoConfig: {
-              plugins: {
-                removeViewBox: false
-              }
+              plugins: [
+                { name: 'removeViewBox', active: false }
+              ]
             }
           }
         }, 'url-loader'],
       },
       {
         test: /\.(woff|woff2|ttf)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "fonts/",
-            },
-          },
-        ]
+        use: {
+          loader: 'url-loader',
+        },
       }
     ],
   },
