@@ -2,6 +2,13 @@ import { createTheme, ThemeOptions } from '@mui/material';
 
 const muiOptions: ThemeOptions = {
     components: {
+        MuiAppBar: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#111014',
+                }
+            }
+        },
         MuiButton: {
             styleOverrides: {
                 root: {
@@ -13,9 +20,31 @@ const muiOptions: ThemeOptions = {
                 }
             },
         },
+        MuiIconButton: {
+            styleOverrides: {
+                root: {
+                    color: '#6E35DE'
+                }
+            }
+        },
         MuiInputLabel: {
             styleOverrides: {
                 root: {
+                    color: '#fff'
+                }
+            }
+        },
+        MuiListItemIcon: {
+            styleOverrides: {
+                root: {
+                    color: '#6E35DE',
+                }
+            }
+        },
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#000000',
                     color: '#fff'
                 }
             }

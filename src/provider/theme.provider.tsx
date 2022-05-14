@@ -1,11 +1,7 @@
-import { ThemeProvider as MuiThemeProvider } from '@mui/material';
+import { StyledEngineProvider, ThemeProvider as MuiThemeProvider } from '@mui/material';
 import { customMuiTheme, GlobalStyle, PalletModel, PalletsType, theme } from 'assets';
-import React, { createContext, FC, useMemo, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-
-const themeContextValues = {};
-
-const ThemeContext = createContext(themeContextValues);
 
 export const CustomThemeContext:FC = (props) => {
     const [currentPallet, setCurrentPallet] = useState<PalletModel>(theme.pallet.dark);
@@ -20,12 +16,13 @@ export const CustomThemeContext:FC = (props) => {
 
     const themeObj = useMemo(() => ({ ...theme, currentPallet, changePallet }), [currentPallet, changePallet]);
 
-    return <ThemeContext.Provider value={themeContextValues}>
-        <ThemeProvider theme={themeObj}>
-            <GlobalStyle theme={themeObj} />
-            <MuiThemeProvider theme={customMuiTheme}>
+    return <StyledEngineProvider injectFirst>
+        <MuiThemeProvider theme={customMuiTheme}>
+            <ThemeProvider theme={themeObj}>
+                <GlobalStyle theme={themeObj} />
                 {props.children}
-            </MuiThemeProvider>
-        </ThemeProvider>
-    </ThemeContext.Provider>
+            </ThemeProvider>
+        </MuiThemeProvider>
+
+    </StyledEngineProvider>
 };

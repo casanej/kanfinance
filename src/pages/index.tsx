@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Route, Routes } from 'react-router-dom';
-import { ProtectedRoutes } from 'structure';
+import { AppInternPages } from 'structure';
 import { DashboardPage } from './app';
 import { HomePage } from './home';
 import { LoginPage } from './login';
@@ -15,7 +15,7 @@ export const AppPages = (): ReactElement => {
             <Route path='/login' element={<LoginPage />} />
             <Route path='/logout' element={<LogoutPage />} />
             <Route path='/register' element={<RegisterPage />} />
-            <Route path='app' element={<ProtectedRoutes />}>
+            <Route path='app' element={<AppInternPages />}>
                 <Route path='dashboard' element={<DashboardPage /> } />
             </Route>
             <Route path='*' element={<NotFoundPage />} />

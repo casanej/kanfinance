@@ -1,3 +1,3 @@
 export * from './login-form';
-export * from './protected-routes';
+export * from './app-intern-page';
 export * from './register-form';
