@@ -1,6 +1,27 @@
-import { createTheme, ThemeOptions } from '@mui/material';
+import { createTheme, PaletteColorOptions, ThemeOptions } from '@mui/material';
+
+declare module '@mui/material/styles' {
+    interface CustomPalette {
+        white100: PaletteColorOptions;
+    }
+    interface Palette extends CustomPalette {}
+    interface PaletteOptions extends CustomPalette {}
+}
+
+declare module '@mui/material/Button' {
+    interface ButtonPropsColorOverrides {
+        white100: true;
+    }
+
+    interface ButtonPropsSizeOverrides {
+        xSmall: true;
+    }
+}
 
 const muiOptions: ThemeOptions = {
+    palette: {
+        white100: { main: '#ffffff1a' }
+    },
     components: {
         MuiAppBar: {
             styleOverrides: {
@@ -19,13 +40,30 @@ const muiOptions: ThemeOptions = {
                     color: '#e55f91'
                 }
             },
+            variants: [
+                {
+                    props: { size: 'xSmall' },
+                    style: {
+                        minWidth: '40px',
+                        padding: '10px',
+                    }
+                },
+                {
+                    props: { color: 'white100' },
+                    style: {
+                        '&:hover': {
+                            background: '#6E35DE80',
+                        }
+                    }
+                }
+            ]
         },
         MuiIconButton: {
             styleOverrides: {
                 root: {
                     color: '#6E35DE'
                 }
-            }
+            },
         },
         MuiInputLabel: {
             styleOverrides: {
@@ -63,14 +101,6 @@ const muiOptions: ThemeOptions = {
                 }
             }
         }
-    },
-    palette: {
-        primary: {
-            main: '#6E35DE',
-        },
-        text: {
-            primary: '#fff'
-        },
     },
 };
 

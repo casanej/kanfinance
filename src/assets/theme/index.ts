@@ -38,7 +38,7 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
         -webkit-font-smoothing: antialiased;
         background-color: ${props => props.theme.currentPallet.background.primary};
         color: ${props => props.theme.currentPallet.text.primary};
-        font-family: sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 14px;
         width: 100vw;
         height: 100vh;

@@ -2,10 +2,12 @@ import React, { FC } from 'react';
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import { Box, Toolbar, List, CssBaseline, Typography, Divider, IconButton } from '@mui/material'
+import { Box, Toolbar, List, CssBaseline, Divider, IconButton } from '@mui/material'
 import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon, ChevronRight as ChevronRightIcon } from '@mui/icons-material';
 import { NavMenuSidebarItem, NavMenuTopBarButtons } from './components';
 import { NavMenuTopActions } from './index.style';
+import { ReactComponent as LogoKanfinance } from 'assets/images/logo-kanfinance.svg';
+import { FinancialSummary } from 'structure';
 
 const drawerWidth = 320;
 
@@ -33,7 +35,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
@@ -105,15 +107,14 @@ export const NavMenuDrawer:FC<any> = (props) => {
                         <MenuIcon />
                     </IconButton>
                     <NavMenuTopActions>
-                        <Typography variant='h6' noWrap component='div'>
-                            Kanfinancial
-                        </Typography>
+                        <FinancialSummary />
                         <NavMenuTopBarButtons />
                     </NavMenuTopActions>
                 </Toolbar>
             </AppBar>
             <Drawer variant='permanent' open={open}>
                 <DrawerHeader>
+                    <LogoKanfinance style={{ width: 200 }} />
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>
