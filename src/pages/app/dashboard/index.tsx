@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export const DashboardPage:FC = () => {
     const navigate = useNavigate();
@@ -10,6 +10,7 @@ export const DashboardPage:FC = () => {
 
     return <div>
         DashboardPage
+        <NavLink to='/app/transactions'>Transactions</NavLink>
         <button onClick={handleLogout}>Logout</button>
     </div>;
 };

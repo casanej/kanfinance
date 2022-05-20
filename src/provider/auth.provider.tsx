@@ -2,7 +2,6 @@
 /* eslint-disable no-empty-function */
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useToast } from '../hooks/useToast';
 
 interface Props {
@@ -27,8 +26,7 @@ const AuthProviderContext = createContext<AuthProviderProps>({
 
 export const useAuthProvider = () => useContext(AuthProviderContext);
 
-export const AuthProviderProvider = (props: Props) => {
-    const navigate = useNavigate();
+export const AuthProvider = (props: Props) => {
     const toast = useToast();
     const auth = getAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -50,7 +48,7 @@ export const AuthProviderProvider = (props: Props) => {
                 // Signed in
                 setIsLoggedIn(true);
 
-                if(redirect) navigate('/app/dashboard');
+                if(redirect) window.location.href = '/app/dashboard';
             })
             .catch((error) => {
                 const { code } = error;
@@ -73,7 +71,7 @@ export const AuthProviderProvider = (props: Props) => {
                 await updateProfile(user, {
                     displayName: name
                 })
-                if(redirect) navigate('/app/dashboard');
+                if(redirect) window.location.href = '/app/dashboard';
             })
             .catch((error) => {
                 const { code } = error;
@@ -89,7 +87,7 @@ export const AuthProviderProvider = (props: Props) => {
 
     const handleSignOut = async() => {
         await signOut(auth);
-        navigate('/');
+        window.location.href = '/';
         setIsLoggedIn(false);
     }
 

@@ -9,16 +9,15 @@ import { NotFoundPage } from './not-found';
 import { RegisterPage } from './register';
 
 export const AppPages = (): ReactElement => {
-    return <>
-        <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/login' element={<LoginPage />} />
-            <Route path='/logout' element={<LogoutPage />} />
-            <Route path='/register' element={<RegisterPage />} />
-            <Route path='app' element={<AppInternPages />}>
-                <Route path='dashboard' element={<DashboardPage /> } />
-            </Route>
+    return <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/logout' element={<LogoutPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='app' element={<AppInternPages />}>
+            <Route path='dashboard' element={<DashboardPage /> } />
             <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-    </>;
+        </Route>
+        <Route path='*' element={<NotFoundPage />} />
+    </Routes>;
 };

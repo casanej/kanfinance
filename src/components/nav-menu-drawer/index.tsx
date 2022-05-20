@@ -121,17 +121,17 @@ export const NavMenuDrawer:FC<any> = (props) => {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <NavMenuSidebarItem isOpen={open} label='Dashboard' />
-                    <NavMenuSidebarItem isOpen={open} label='Transações' />
-                    <NavMenuSidebarItem isOpen={open} label='Cartões' />
-                    <NavMenuSidebarItem isOpen={open} label='Contas' />
-                    <NavMenuSidebarItem isOpen={open} label='Planejamento' />
-                    <NavMenuSidebarItem isOpen={open} label='Investimentos' />
-                    <NavMenuSidebarItem isOpen={open} label='Relatórios' />
+                    <NavMenuSidebarItem isOpen={open} href='dashboard' icon='house' label='Dashboard' />
+                    <NavMenuSidebarItem isOpen={open} href='transactions' icon='dollar-sign' label='Transações' />
+                    <NavMenuSidebarItem isOpen={open} href='financial-calendar' icon='calendar-days' label='Agenda Financeira' />
+                    <NavMenuSidebarItem isOpen={open} href='bank-accounts' icon='wallet' label='Contas Bancárias' />
+                    <NavMenuSidebarItem isOpen={open} href='reports' icon='chart-pie' label='Relatórios' />
+                    <NavMenuSidebarItem isOpen={open} href='investments' icon='chart-line' label='Investimentos' />
+                    <NavMenuSidebarItem isOpen={open} href='planning' icon='bullseye' label='Planejamento' />
                 </List>
                 <Divider />
                 <List>
-                    <NavMenuSidebarItem isOpen={open} label='Configurações' />
+                    <NavMenuSidebarItem isOpen={open} href='configurations' icon={'cog'} label='Configurações' />
                 </List>
             </Drawer>
             <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
