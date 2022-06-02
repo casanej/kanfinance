@@ -1,17 +1,14 @@
 import { PalletModel } from '.';
 
-const colorBlack = '#191923';
-const colorWhite = '#E5E5E5';
-
 export const darkTheme: PalletModel = {
     text: {
-        primary: colorWhite,
+        primary: '#E5E5E5',
         secondary: '',
         success: '',
         danger: '',
         info: '',
-        light: colorWhite,
-        dark: colorBlack
+        light: '#E5E5E5',
+        dark: '#191923'
     },
     background: {
         primary: '#191923'
@@ -22,7 +19,7 @@ export const darkTheme: PalletModel = {
         success: '',
         danger: '',
         info: '',
-        light: '##FFFFFF',
-        dark: colorBlack
+        light: '#FFFFFF',
+        dark: '#191923'
     }
 };

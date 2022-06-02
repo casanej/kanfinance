@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import { Box, Toolbar, List, CssBaseline, Divider, IconButton } from '@mui/material'
+import { Box, Toolbar, List, CssBaseline, IconButton } from '@mui/material'
 import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon, ChevronRight as ChevronRightIcon } from '@mui/icons-material';
 import { NavMenuSidebarItem, NavMenuTopBarButtons } from './components';
 import { NavMenuTopActions } from './index.style';
@@ -119,7 +119,6 @@ export const NavMenuDrawer:FC<any> = (props) => {
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>
                 </DrawerHeader>
-                <Divider />
                 <List>
                     <NavMenuSidebarItem isOpen={open} href='dashboard' icon='house' label='Dashboard' />
                     <NavMenuSidebarItem isOpen={open} href='transactions' icon='dollar-sign' label='Transações' />
@@ -129,7 +128,6 @@ export const NavMenuDrawer:FC<any> = (props) => {
                     <NavMenuSidebarItem isOpen={open} href='investments' icon='chart-line' label='Investimentos' />
                     <NavMenuSidebarItem isOpen={open} href='planning' icon='bullseye' label='Planejamento' />
                 </List>
-                <Divider />
                 <List>
                     <NavMenuSidebarItem isOpen={open} href='configurations' icon={'cog'} label='Configurações' />
                 </List>

@@ -58,6 +58,13 @@ const muiOptions: ThemeOptions = {
                 }
             ]
         },
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    borderColor: '#999999',
+                }
+            }
+        },
         MuiIconButton: {
             styleOverrides: {
                 root: {
@@ -69,6 +76,15 @@ const muiOptions: ThemeOptions = {
             styleOverrides: {
                 root: {
                     color: '#fff'
+                }
+            }
+        },
+        MuiGrid: {
+            styleOverrides: {
+                root: {
+                    '.MuiGrid-item': {
+                        // padding: 0
+                    }
                 }
             }
         },

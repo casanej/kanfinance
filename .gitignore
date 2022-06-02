@@ -2,6 +2,7 @@
 node_modules
 build
 .firebase
+**/mock-data/**.ts
 
 #files removes
 **/*.lock

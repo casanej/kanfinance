@@ -1,6 +1,7 @@
+export * from './box';
 export * from './container';
 export * from './mui-wrapper';
-export * from './nav-menu-drawer';
+export * from './nivo-rocks';
 export * from './statement-item';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
