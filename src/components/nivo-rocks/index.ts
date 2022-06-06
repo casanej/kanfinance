@@ -4,5 +4,5 @@ export * from './line-chart';
 export * from './pie-chart';
 
 export const nivoTheming: Theme = {
-    textColor: '#fff',
+    textColor: '#000',
 }

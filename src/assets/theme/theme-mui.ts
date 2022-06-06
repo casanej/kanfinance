@@ -20,6 +20,7 @@ declare module '@mui/material/Button' {
 
 const muiOptions: ThemeOptions = {
     palette: {
+        mode: 'dark',
         white100: { main: '#ffffff1a' }
     },
     components: {
@@ -79,15 +80,6 @@ const muiOptions: ThemeOptions = {
                 }
             }
         },
-        MuiGrid: {
-            styleOverrides: {
-                root: {
-                    '.MuiGrid-item': {
-                        // padding: 0
-                    }
-                }
-            }
-        },
         MuiListItemIcon: {
             styleOverrides: {
                 root: {
@@ -100,7 +92,7 @@ const muiOptions: ThemeOptions = {
                 root: {
                     backgroundColor: '#000000',
                     color: '#fff'
-                }
+                },
             }
         },
         MuiTextField: {
