@@ -3,6 +3,7 @@ import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { transactionsDataGrid } from 'utils';
 import { Box } from 'components';
 import { Grid } from '@mui/material';
+import { WeeklySchedule } from 'structure';
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -68,7 +69,7 @@ export const TransactionsPage:FC = () => {
             </Grid>
 
             <Grid item xs={6}>
-
+                <WeeklySchedule />
             </Grid>
         </Grid>
     </div>;

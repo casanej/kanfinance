@@ -8,7 +8,7 @@ export const DailySchedule:FC = () => {
         <div>
             <StatementItem variant='brief' value={1800} greatness='positive'>Descrição de item 1</StatementItem>
             <StatementItem variant='brief' value={1200} greatness='negative'>Descrição de item 2</StatementItem>
-            <StatementItem variant='brief' value={800} greatness='negative'>Descrição de item 2</StatementItem>
+            <StatementItem variant='brief' value={800} greatness='negative'>Descrição de item 3</StatementItem>
         </div>
     </>;
 };
