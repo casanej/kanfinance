@@ -13,9 +13,6 @@ interface Props {
 }
 
 export const NavMenuSidebarItem:FC<Props> = (props) => {
-
-    console.log('[props]', props);
-
     return <NavLink to={props.href}>
         <ListItem disablePadding sx={{ display: 'block' }}>
             <ListItemButton sx={{ minHeight: 48, justifyContent: props.isOpen ? 'initial' : 'center', px: 2.5, }} >

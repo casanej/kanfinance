@@ -1,9 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback, useEffect } from 'react'
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { transactionsDataGrid } from 'utils';
-import { Box } from 'components';
+import { AsyncLoad, Box } from 'components';
 import { Grid } from '@mui/material';
 import { WeeklySchedule } from 'structure';
+import { transactionsService } from 'service';
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -18,11 +19,11 @@ const columns: GridColDef[] = [
         width: 300,
     },
     {
-        field: 'dateCreate',
+        field: 'createdDate',
         headerName: 'Data de criação',
-        type: 'dateTime',
         width: 300,
         valueGetter: (params: GridValueGetterParams) => {
+            console.log('[VALUE]', params)
             return new Intl.DateTimeFormat('pt-BR').format(new Date(params.value));
         }
     },
@@ -30,6 +31,11 @@ const columns: GridColDef[] = [
         field: 'category',
         headerName: 'Categoria',
         width: 300,
+        valueGetter: (params: GridValueGetterParams) => {
+            if (params.value) return params.value.name;
+
+            return null;
+        }
     },
     {
         field: 'paymentType',
@@ -53,17 +59,31 @@ const columns: GridColDef[] = [
 
 export const TransactionsPage:FC = () => {
 
+    /* useEffect(() => {
+        transactionsService.getTransactions();
+    }, []) */
+
+    const promiseHandleGetTransactions = useCallback(async() => {
+        const transactions = await transactionsService.getTransactions()
+        return transactions;
+    }, [])
+
     return <div>
         <Grid container spacing={2}>
             <Grid item xs={12}>
                 <Box title='Resumo financeiro - Maio/2022'>
                     <div style={{ height: 130 + 52 * 6, width: '100%' }}>
-                        <DataGrid
-                            rows={transactionsDataGrid}
-                            columns={columns}
-                            pageSize={6}
-                            rowsPerPageOptions={[5]}
-                        />
+                        <AsyncLoad promiseFn={promiseHandleGetTransactions}>
+                            {(transactions: any) => {
+                                console.log('[transactions]', transactions);
+                                return <DataGrid
+                                    rows={transactions.data}
+                                    columns={columns}
+                                    pageSize={6}
+                                    rowsPerPageOptions={[5]}
+                                />
+                            }}
+                        </AsyncLoad>
                     </div>
                 </Box>
             </Grid>

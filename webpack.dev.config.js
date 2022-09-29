@@ -68,6 +68,8 @@ const config = {
       components: path.resolve(__dirname, 'src/components/'),
       provider: path.resolve(__dirname, 'src/provider/'),
       structure: path.resolve(__dirname, 'src/structure/'),
+      service: path.resolve(__dirname, 'src/service/'),
+      state: path.resolve(__dirname, 'src/state/'),
       '@material-ui/styled-engine': '@material-ui/styled-engine-sc',
     },
     fallback: {
